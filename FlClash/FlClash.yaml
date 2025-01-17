@@ -78,7 +78,7 @@ proxy-providers:
     url: "https://reddax-sub-store.hf.space/RAINYHUSH/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
     type: http
     interval: 86400
-    proxy: direct
+    proxy: 直连
     health-check:
       enable: true
       interval: 1800
@@ -95,13 +95,13 @@ u:
 pr:
   &pr {
     type: select,
-    proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 英国, 国内, 其它, direct],
+    proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 英国, 德国, 国内, 其它, 直连],
   }
 
 proxies:
   - name: "dns-out"
     type: dns
-  - name: "direct"
+  - name: "直连"
     type: direct
     udp: true
 
@@ -162,44 +162,50 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
     include-all: true
-    filter: "(?i)(港|hk|HK|HongKong)"
+    filter: "(?i)(香港|hk|HK|HongKong)"
 
   - name: 日本
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
     include-all: true
-    filter: "(?i)(日|jp|JP|Japan)"
+    filter: "(?i)(日本|jp|JP|Japan)"
 
   - name: 新加坡
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
     include-all: true
-    filter: "(?i)(新|sg|SG|singapore)"
+    filter: "(?i)(新加坡|狮城|sg|SG|singapore)"
 
   - name: 台湾
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
     include-all: true
-    filter: "(?i)(台|tw|TW|Taiwan)"
+    filter: "(?i)(台湾|tw|TW|Taiwan)"
 
   - name: 韩国
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
     include-all: true
-    filter: "(?i)(韩|KR|Korea)"
+    filter: "(?i)(韩国|KR|Korea)"
 
   - name: 美国
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
     include-all: true
-    filter: "(?i)(美|USA|America|United States)"
+    filter: "(?i)(美国|USA|America|United States)"
 
   - name: 英国
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
     include-all: true
-    filter: "(?i)(英|UK|GB|United Kingdom)"
+    filter: "(?i)(英国|UK|GB|United Kingdom)"
 
+  - name: 德国
+    <<: *u
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png"
+    include-all: true
+    filter: "(?i)(德国|DE|de|Germany)"
+    
   - name: 国内
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
@@ -210,7 +216,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     include-all: true
-    filter: "(?i)^(?!.*(?:港|HK|台|TW|日|JP|新|SG|韩|KR|美|US|英|GB|UK|徐|广|浙|镇|武|济|dns-out)).*"
+    filter: "(?i)^(?!.*(?:港|HK|台|TW|日|JP|新|SG|韩|KR|美|US|英|GB|UK|德国|DE|徐|广|浙|镇|武|济|直连|dns-out)).*"
 
 # 规则
 rules:
