@@ -358,7 +358,9 @@
     {
       "tag": "中国",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [
+        "direct"
+      ],
       "url": "http://cp.cloudflare.com/",
       "interval": "10m",
       "tolerance": 30
