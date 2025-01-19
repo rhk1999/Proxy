@@ -77,7 +77,7 @@ proxy-providers:
   provider1:
     url: "https://reddax-sub-store.hf.space/RAINYHUSH/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
     type: http
-    interval: 86400
+    interval: 18000
     proxy: 直连
     health-check:
       enable: true
@@ -87,7 +87,7 @@ proxy-providers:
 u:
   &u {
     type: url-test,
-    interval: 600,
+    interval: 1800,
     tolerance: 50,
     lazy: true,
     url: "https://www.gstatic.com/generate_204",
