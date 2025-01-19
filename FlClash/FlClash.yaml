@@ -206,6 +206,12 @@ proxy-groups:
     include-all: true
     filter: "(?i)(德国|DE|de|Germany)"
     
+  - name: 俄罗斯
+    <<: *u
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png"
+    include-all: true
+    filter: "(?i)(俄罗斯|RU|ru|Russia)"
+    
   - name: 国内
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
@@ -216,7 +222,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     include-all: true
-    filter: "(?i)^(?!.*(?:港|HK|台|TW|日|JP|新|SG|韩|KR|美|US|英|GB|UK|德国|DE|徐|广|浙|镇|武|济|直连|dns-out)).*"
+    filter: "(?i)^(?!.*(?:港|HK|台|TW|日|JP|新|SG|韩|KR|美|US|英|GB|UK|德国|DE|俄罗斯|RU|徐|广|浙|镇|武|济|直连|dns-out)).*"
 
 # 规则
 rules:
