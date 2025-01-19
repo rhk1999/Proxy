@@ -77,7 +77,7 @@ proxy-providers:
   provider1:
     url: "https://reddax-sub-store.hf.space/RAINYHUSH/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
     type: http
-    interval: 18000
+    interval: 25200
     proxy: 直连
     health-check:
       enable: true
