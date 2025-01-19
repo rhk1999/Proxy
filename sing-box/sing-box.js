@@ -19,7 +19,7 @@ config.outbounds.map((i) => {
       ...proxies
         .filter(
           (p) =>
-            !/镇江|徐州|武汉|济南|香港|direct|HongKong|HK|台湾|Taiwan|TW|日本|东京|Japan|JP|新加坡|Singapore|SG|美国|America|US|韩国|Korea|KR|英国|United Kingdom|UK|德国|Germany|DE/i.test(
+            !/镇江|徐州|武汉|济南|香港|direct|HongKong|HK|台湾|Taiwan|TW|日本|东京|Japan|JP|新加坡|Singapore|SG|美国|America|US|韩国|Korea|KR|英国|United Kingdom|UK|俄罗斯|RU|ru|Russia|德国|Germany|DE/i.test(
               p.tag,
             ),
         )
@@ -73,6 +73,13 @@ config.outbounds.map((i) => {
     i.outbounds.push(
       ...proxies
         .filter((p) => /德国|Germany|DE/i.test(p.tag))
+        .map((p) => p.tag),
+    );
+  }
+  if (["俄罗斯"].includes(i.tag)) {
+    i.outbounds.push(
+      ...proxies
+        .filter((p) => /俄罗斯|RU|ru|Russia/i.test(p.tag))
         .map((p) => p.tag),
     );
   }
