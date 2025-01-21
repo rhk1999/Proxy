@@ -75,7 +75,7 @@ tun:
 
 proxy-providers:
   provider1:
-    url: "https://reddax-sub-store.hf.space/RAINYHUSH/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
+    url: "http://127.0.0.1:3000/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
     type: http
     interval: 25200
     proxy: 直连
