@@ -1,7 +1,7 @@
   const yaml = ProxyUtils.yaml.safeLoad($content ?? $files[0])
   let clashMetaProxies = await produceArtifact({
     type: 'collection',
-    name: '机场',
+    name: 'FlClash',
     platform: 'ClashMeta',
     produceType: 'internal'
   })

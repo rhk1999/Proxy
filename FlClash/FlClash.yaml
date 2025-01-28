@@ -75,10 +75,9 @@ tun:
 
 proxy-providers:
   provider1:
-    url: "http://127.0.0.1:3000/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
+    url: "http://iceebmuj.serv00.net:35014/download/collection/FlClash?target=ClashMeta"
     type: http
     interval: 25200
-    proxy: 直连
     health-check:
       enable: true
       interval: 1800
@@ -95,7 +94,7 @@ u:
 pr:
   &pr {
     type: select,
-    proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 英国, 德国, 俄罗斯, 国内, 其它, 直连],
+    proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 英国, 德国, 国内, 其它, 直连],
   }
 
 proxies:
@@ -162,7 +161,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
     include-all: true
-    filter: "(?i)(香港|hk|HK|HongKong)"
+    filter: "(?i)(香港|hk|HK|HongKong|Hong Kong)"
 
   - name: 日本
     <<: *u
@@ -206,12 +205,6 @@ proxy-groups:
     include-all: true
     filter: "(?i)(德国|DE|de|Germany)"
     
-  - name: 俄罗斯
-    <<: *u
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png"
-    include-all: true
-    filter: "(?i)(俄罗斯|RU|ru|Russia)"
-    
   - name: 国内
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
@@ -222,7 +215,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     include-all: true
-    filter: "(?i)^(?!.*(?:港|HK|台|TW|日|JP|新|SG|韩|KR|美|US|英|GB|UK|德国|DE|俄罗斯|RU|徐|广|浙|镇|武|济|直连|dns-out)).*"
+    filter: "(?i)^(?!.*(?:港|HK|HongKong|Hong Kong|台|TW|日|JP|新|SG|韩|KR|美|United States|US|英|GB|UK|德国|DE|徐|广|浙|镇|武|济|直连|dns-out)).*"
 
 # 规则
 rules:

@@ -19,7 +19,7 @@ config.outbounds.map((i) => {
       ...proxies
         .filter(
           (p) =>
-            !/镇江|徐州|武汉|济南|香港|direct|HongKong|HK|台湾|Taiwan|TW|日本|东京|Japan|JP|新加坡|Singapore|SG|美国|America|US|韩国|Korea|KR|英国|United Kingdom|UK|俄罗斯|RU|ru|Russia|德国|Germany|DE/i.test(
+            !/镇江|徐州|武汉|济南|香港|direct|HongKong|Hong Kong|HK|台湾|Taiwan|TW|日本|东京|Japan|JP|新加坡|Singapore|SG|美国|America|United States|US|韩国|Korea|KR|英国|United Kingdom|UK|GB|德国|Germany|DE/i.test(
               p.tag,
             ),
         )
@@ -29,7 +29,7 @@ config.outbounds.map((i) => {
   if (["香港"].includes(i.tag)) {
     i.outbounds.push(
       ...proxies
-        .filter((p) => /香港|HongKong|HK/i.test(p.tag))
+        .filter((p) => /香港|HongKong|Hong Kong|HK/i.test(p.tag))
         .map((p) => p.tag),
     );
   }
@@ -58,7 +58,7 @@ config.outbounds.map((i) => {
   if (["美国"].includes(i.tag)) {
     i.outbounds.push(
       ...proxies
-        .filter((p) => /美国|America|US/i.test(p.tag))
+        .filter((p) => /美国|America|United States|US/i.test(p.tag))
         .map((p) => p.tag),
     );
   }
@@ -73,13 +73,6 @@ config.outbounds.map((i) => {
     i.outbounds.push(
       ...proxies
         .filter((p) => /德国|Germany|DE/i.test(p.tag))
-        .map((p) => p.tag),
-    );
-  }
-  if (["俄罗斯"].includes(i.tag)) {
-    i.outbounds.push(
-      ...proxies
-        .filter((p) => /俄罗斯|RU|ru|Russia/i.test(p.tag))
         .map((p) => p.tag),
     );
   }
