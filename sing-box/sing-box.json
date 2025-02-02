@@ -380,10 +380,20 @@
   "route": {
     "rules": [
       {
+        "inbound": ["tun-in", "mixed-in"],
         "action": "sniff"
       },
       {
-        "protocol": "dns",
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 53
+            },
+          {
+            "protocol": "dns"
+            }
+          ],
         "action": "hijack-dns"
       },
       {
