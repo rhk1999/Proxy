@@ -75,7 +75,7 @@ tun:
 
 proxy-providers:
   provider1:
-    url: "http://iceebmuj.serv00.net:35014/download/collection/FlClash?target=ClashMeta"
+    url: "https://rhk1999-sub-store.hf.space/rainyhush/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
     type: http
     interval: 25200
     health-check:
@@ -86,9 +86,9 @@ proxy-providers:
 u:
   &u {
     type: url-test,
-    interval: 1800,
-    tolerance: 50,
-    lazy: true,
+    interval: 300,
+    # tolerance: 50,
+    # lazy: true,
     url: "https://www.gstatic.com/generate_204",
   }
 pr:
