@@ -86,7 +86,7 @@ proxy-providers:
 u:
   &u {
     type: url-test,
-    interval: 300,
+    interval: 1800,
     # tolerance: 50,
     # lazy: true,
     url: "https://www.gstatic.com/generate_204",
@@ -94,7 +94,7 @@ u:
 pr:
   &pr {
     type: select,
-    proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 英国, 德国, 国内, 其它, 直连],
+    proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 国内, 其它, 直连],
   }
 
 proxies:
@@ -192,18 +192,6 @@ proxy-groups:
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
     include-all: true
     filter: "(?i)(美国|USA|America|United States)"
-
-  - name: 英国
-    <<: *u
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
-    include-all: true
-    filter: "(?i)(英国|UK|GB|United Kingdom)"
-
-  - name: 德国
-    <<: *u
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png"
-    include-all: true
-    filter: "(?i)(德国|DE|de|Germany)"
     
   - name: 国内
     <<: *u
@@ -215,7 +203,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     include-all: true
-    filter: "(?i)^(?!.*(?:港|HK|HongKong|Hong Kong|台|TW|日|JP|新|SG|韩|KR|美|United States|US|英|GB|UK|德国|DE|徐|广|浙|镇|武|济|直连|dns-out)).*"
+    filter: "(?i)^(?!.*(?:港|HK|HongKong|Hong Kong|台|TW|日|JP|新|SG|韩|KR|美|United States|US|徐|广|浙|镇|武|济|直连|dns-out)).*"
 
 # 规则
 rules:
