@@ -58,7 +58,7 @@ dns:
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
   nameserver-policy:
-    "geosite:cn,private":
+    "rule-set:ChinaMax_Domain,private":
       - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query
 
@@ -83,19 +83,16 @@ proxy-providers:
       interval: 1800
       url: "https://www.gstatic.com/generate_204"
 
-u:
-  &u {
-    type: url-test,
-    interval: 1800,
-    # tolerance: 50,
-    # lazy: true,
-    url: "https://www.gstatic.com/generate_204",
-  }
-pr:
-  &pr {
-    type: select,
-    proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 国内, 其它, 直连],
-  }
+u: &u
+  type: url-test
+  interval: 1800
+  # tolerance: 50
+  # lazy: true
+  url: "https://www.gstatic.com/generate_204"
+
+pr: &pr
+  type: select
+  proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 国内, 其它, 直连]
 
 proxies:
   - name: "dns-out"
@@ -105,99 +102,79 @@ proxies:
     udp: true
 
 proxy-groups:
-  - {
-      name: Proxy,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png",
-    }
-  - {
-      name: Google,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png",
-    }
-  - {
-      name: OpenAI,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bot.png",
-    }
-  - {
-      name: Gemini,
-      <<: *pr,
-      icon: "https://brandlogos.net/wp-content/uploads/2024/04/gemini-logo_brandlogos.net_fwajr.png",
-    }
-  - {
-      name: YouTube,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png",
-    }
-  - {
-      name: Telegram,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png",
-    }
-  - {
-      name: Microsoft,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png",
-    }
-  - {
-      name: Spotify,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png",
-    }
-  - {
-      name: GitHub,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png",
-    }
-  - {
-      name: China,
-      <<: *pr,
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png",
-    }
+  - name: Proxy
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png"
+  - name: Google
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"
+  - name: OpenAI
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bot.png"
+  - name: Gemini
+    <<: *pr
+    icon: "https://brandlogos.net/wp-content/uploads/2024/04/gemini-logo_brandlogos.net_fwajr.png"
+  - name: YouTube
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png"
+  - name: Telegram
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png"
+  - name: Microsoft
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png"
+  - name: Spotify
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png"
+  - name: GitHub
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png"
+  - name: China
+    <<: *pr
+    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png"
 
   # 地区
   - name: 香港
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
     include-all: true
-    filter: "(?i)(香港|hk|HK|HongKong|Hong Kong)"
+    filter: "(?i)(🇭🇰|香港|hk|HK|HongKong|Hong Kong)"
 
   - name: 日本
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
     include-all: true
-    filter: "(?i)(日本|jp|JP|Japan)"
+    filter: "(?i)(🇯🇵|日本|jp|JP|Japan)"
 
   - name: 新加坡
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
     include-all: true
-    filter: "(?i)(新加坡|狮城|sg|SG|singapore)"
+    filter: "(?i)(🇸🇬|新加坡|狮城|sg|SG|Singapore)"
 
   - name: 台湾
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
     include-all: true
-    filter: "(?i)(台湾|tw|TW|Taiwan)"
+    filter: "(?i)(🇼🇸|台湾|tw|TW|Taiwan)"
 
   - name: 韩国
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
     include-all: true
-    filter: "(?i)(韩国|KR|Korea)"
+    filter: "(?i)(🇰🇷|韩国|KR|Korea)"
 
   - name: 美国
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
     include-all: true
-    filter: "(?i)(美国|USA|America|United States)"
+    filter: "(?i)(🇺🇲|美国|USA|America|United States)"
     
   - name: 国内
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
     include-all: true
-    filter: "(?i)(徐|广|浙|镇|武|济)"
+    filter: "(?i)(🇨🇳|徐|广|浙|镇|武|济)"
 
   - name: 其它
     <<: *u
@@ -207,9 +184,9 @@ proxy-groups:
 
 # 规则
 rules:
-  #  - RULE-SET,Advertising_Domain,REJECT-DROP
+  - RULE-SET,Advertising_Domain,REJECT-DROP
   - DST-PORT,53,dns-out
-  #  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   - RULE-SET,github,GitHub
   - RULE-SET,openai,OpenAI
   - RULE-SET,youtube,YouTube
@@ -241,9 +218,9 @@ rule-anchor:
     format: yaml
 # 规则集
 rule-providers:
-  #  Advertising_Domain:
-  #    <<: *domain
-  #    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.yaml"
+  Advertising_Domain:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.yaml"
   ChinaMax_Domain:
     <<: *domain
     url: "https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Domain.yaml"
