@@ -33,6 +33,13 @@ config.outbounds.map((i) => {
         .map((p) => p.tag),
     );
   }
+  if (["香港-自动选择"].includes(i.tag)) {
+    i.outbounds.push(
+      ...proxies
+        .filter((p) => /香港|HongKong|Hong Kong|HK/i.test(p.tag))
+        .map((p) => p.tag),
+    );
+  }
   if (["台湾"].includes(i.tag)) {
     i.outbounds.push(
       ...proxies.filter((p) => /台湾|Taiwan|TW/i.test(p.tag)).map((p) => p.tag),
@@ -43,7 +50,19 @@ config.outbounds.map((i) => {
       ...proxies.filter((p) => /日本|东京|Japan|JP/i.test(p.tag)).map((p) => p.tag),
     );
   }
+  if (["日本-自动选择"].includes(i.tag)) {
+    i.outbounds.push(
+      ...proxies.filter((p) => /日本|东京|Japan|JP/i.test(p.tag)).map((p) => p.tag),
+    );
+  }
   if (["新加坡"].includes(i.tag)) {
+    i.outbounds.push(
+      ...proxies
+        .filter((p) => /新加坡|Singapore|SG/i.test(p.tag))
+        .map((p) => p.tag),
+    );
+  }
+  if (["新加坡-自动选择"].includes(i.tag)) {
     i.outbounds.push(
       ...proxies
         .filter((p) => /新加坡|Singapore|SG/i.test(p.tag))
