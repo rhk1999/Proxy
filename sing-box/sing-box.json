@@ -335,7 +335,7 @@
     },
     {
       "tag": "新加坡",
-      "type": "urltest",
+      "type": "selector",
       "outbounds": []
     },
     {
