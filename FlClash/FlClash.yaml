@@ -75,7 +75,7 @@ tun:
 
 proxy-providers:
   provider1:
-    url: "https://rhk1999-sub-store.hf.space/rainyhush/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
+    url: ""
     type: http
     interval: 25200
     health-check:
