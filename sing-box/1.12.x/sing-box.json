@@ -16,7 +16,7 @@
         "tag": "ali",
         "type": "https",
         "server": "223.5.5.5",
-        "detour": "direct"
+        "detour": "cn-auto"
       },
       {
         "tag": "fakeip",
@@ -238,7 +238,7 @@
         "direct",
         "other"
       ],
-      "default": "direct"
+      "default": "cn-auto"
     },
     {
       "tag": "hongkong",
