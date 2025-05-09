@@ -7,9 +7,9 @@
   "dns": {
     "servers": [
       {
-        "tag": "google",
+        "tag": "cf",
         "type": "https",
-        "server": "8.8.8.8",
+        "server": "1.1.1.1",
         "detour": "proxy"
       },
       {
@@ -55,7 +55,7 @@
         "server": "ali"
       }
     ],
-    "final": "google",
+    "final": "cf",
     "strategy": "prefer_ipv4",
     "independent_cache": true
   },
@@ -289,8 +289,10 @@
         "action": "sniff"
       },
       {
-        "rule_set": "Advertising",
-        "action": "reject"
+        "rule_set": "Advertising_domain",
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
       },
       {
         "type": "logical",
@@ -397,7 +399,7 @@
         "download_detour": "direct"
       },
       {
-        "tag": "Advertising",
+        "tag": "Advertising_domain",
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Advertising/Advertising.srs",
