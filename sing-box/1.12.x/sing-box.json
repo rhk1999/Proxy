@@ -410,7 +410,7 @@
   "experimental": {
     "clash_api": {
       "external_controller": "127.0.0.1:9091",
-      "external_ui": "ui",
+      "external_ui": "zashboard",
       "external_ui_download_url": "https://ghfast.top/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "direct"
     },
