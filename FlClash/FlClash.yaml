@@ -12,6 +12,8 @@ interface-name: Meta
 find-process-mode: strict
 global-client-fingerprint: chrome
 external-controller: 127.0.0.1:9000
+external-ui: ui
+external-ui-url: "https://ghfast.top/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 geodata-mode: false
 geodata-loader: standard
@@ -74,7 +76,7 @@ tun:
   auto-detect-interface: true
 
 proxy-providers:
-  provider1:
+  中国国际机场:
     url: ""
     type: http
     interval: 25200
