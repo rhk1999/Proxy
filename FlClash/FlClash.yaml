@@ -108,21 +108,9 @@ proxy-groups:
   - name: Google
     <<: *pr
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"
-  - name: OpenAI
-    <<: *pr
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bot.png"
-  - name: Gemini
-    <<: *pr
-    icon: "https://brandlogos.net/wp-content/uploads/2024/04/gemini-logo_brandlogos.net_fwajr.png"
   - name: YouTube
     <<: *pr
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png"
-  - name: Telegram
-    <<: *pr
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png"
-  - name: Microsoft
-    <<: *pr
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png"
   - name: Spotify
     <<: *pr
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png"
@@ -188,13 +176,8 @@ rules:
   - DST-PORT,53,dns-out
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   - RULE-SET,github,GitHub
-  - RULE-SET,openai,OpenAI
   - RULE-SET,youtube,YouTube
   - RULE-SET,spotify,Spotify
-  - RULE-SET,telegram,Telegram
-  - RULE-SET,telegram_ip,Telegram,no-resolve
-  - RULE-SET,microsoft,Microsoft
-  - RULE-SET,gemini,Gemini
   - RULE-SET,google,Google
   - RULE-SET,google_ip,Google,no-resolve
   - RULE-SET,geolocation-!cn,Proxy,no-resolve
@@ -233,34 +216,21 @@ rule-providers:
   github:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.yaml"
-  gemini:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.yaml"
-  openai:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml"
   spotify:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.yaml"
   youtube:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.yaml"
-  telegram:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.yaml"
-  microsoft:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.yaml"
   geolocation-!cn:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml"
-
   ChinaMax_IP:
     <<: *ip
     url: "https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_IP.yaml"
   google_ip:
     <<: *ip
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.yaml"
-  telegram_ip:
-    <<: *ip
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.yaml"
+
+
+
