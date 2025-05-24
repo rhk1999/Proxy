@@ -55,10 +55,12 @@ dns:
     - 120.53.53.53
     - 223.5.5.5
   nameserver:
-    - tls://1.1.1.1
-    - tls://8.8.8.8
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
+    - "tls://1.1.1.1#Proxy"
+    - "tls://8.8.8.8#Proxy"
+    - "https://cloudflare-dns.com/dns-query#Proxy"
+    - "https://dns.google/dns-query#Proxy"
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     "rule-set:ChinaMax_Domain,private":
       - https://doh.pub/dns-query
