@@ -168,7 +168,8 @@ proxy-groups:
     filter: "(?i)(🇨🇳|徐|广|浙|镇|武|济)"
 
   - name: 其它
-    <<: *u
+    type: select
+    #<<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     include-all: true
     filter: "(?i)^(?!.*(?:港|HK|HongKong|Hong Kong|台|TW|日|JP|新|SG|韩|KR|美|United States|US|徐|广|浙|镇|武|济|直连|dns-out)).*"
