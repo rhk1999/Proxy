@@ -53,19 +53,18 @@ dns:
     - tls://1.12.12.12
     - 119.29.29.29
     - 120.53.53.53
+    - 114.114.114.114
     - 223.5.5.5
+    - 223.6.6.6
   nameserver:
-    - "tls://1.1.1.1#Proxy"
-    - "tls://8.8.8.8#Proxy"
-    - "https://cloudflare-dns.com/dns-query#Proxy"
-    - "https://dns.google/dns-query#Proxy"
-  proxy-server-nameserver:
-    - https://dns.alidns.com/dns-query
+    - tls://1.1.1.1
+    - tls://8.8.8.8
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
   nameserver-policy:
-    "rule-set:ChinaMax_Domain,private":
-      - https://doh.pub/dns-query
+    geosite:cn: 
+      - https://dns.pub/dns-query
       - https://dns.alidns.com/dns-query
-
 tun:
   enable: true
   stack: mixed
@@ -184,10 +183,13 @@ rules:
   - RULE-SET,spotify,Spotify
   - RULE-SET,google,Google
   - RULE-SET,google_ip,Google,no-resolve
-  - RULE-SET,geolocation-!cn,Proxy,no-resolve
+  - RULE-SET,geolocation-!cn,Proxy
   - RULE-SET,ChinaMax_Domain,China
   - RULE-SET,ChinaMax_IP,China,no-resolve
   - RULE-SET,private,China,no-resolve
+  
+  - GEOSITE,CN,China
+  - GEOIP,CN,China,no-resolve
   - MATCH,Proxy
 
 rule-anchor:
