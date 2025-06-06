@@ -11,7 +11,7 @@ keep-alive-interval: 30
 interface-name: Meta
 find-process-mode: strict
 global-client-fingerprint: chrome
-external-controller: 127.0.0.1:9000
+external-controller: 127.0.0.1:9090
 external-ui: ui
 external-ui-url: "https://ghfast.top/https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
@@ -59,12 +59,12 @@ dns:
   nameserver:
     - tls://1.1.1.1
     - tls://8.8.8.8
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
+    - 'https://cloudflare-dns.com/dns-query#h3=true'
+    - 'https://dns.google/dns-query#h3=true'
   nameserver-policy:
     geosite:cn: 
-      - https://dns.pub/dns-query
-      - https://dns.alidns.com/dns-query
+      - 'https://dns.pub/dns-query#h3=true'
+      - 'https://dns.alidns.com/dns-query#h3=true'
 tun:
   enable: true
   stack: mixed
@@ -78,7 +78,7 @@ tun:
 
 proxy-providers:
   中国国际机场:
-    url: ""
+    url: "http://207.58.172.85:3000/rainyhush/download/collection/%E7%BB%84%E5%90%88%E8%AE%A2%E9%98%85?target=ClashMeta"
     type: http
     interval: 25200
     health-check:
@@ -95,14 +95,14 @@ u: &u
 
 pr: &pr
   type: select
-  proxies: [香港, 日本, 新加坡, 台湾, 韩国, 美国, 国内, 其它, 直连]
+  proxies: [Hongkong, Japan, Singapore, Taiwan, Korea, America, CN, Other, DIRECT]
 
 proxies:
   - name: "dns-out"
     type: dns
-  - name: "直连"
-    type: direct
-    udp: true
+ # - name: "DIRECT"
+   # type: direct
+   # udp: true
 
 proxy-groups:
   - name: Proxy
@@ -125,49 +125,49 @@ proxy-groups:
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png"
 
   # 地区
-  - name: 香港
+  - name: Hongkong
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
     include-all: true
     filter: "(?i)(🇭🇰|香港|hk|HK|HongKong|Hong Kong)"
 
-  - name: 日本
+  - name: Japan
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
     include-all: true
     filter: "(?i)(🇯🇵|日本|jp|JP|Japan)"
 
-  - name: 新加坡
+  - name: Singapore
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
     include-all: true
     filter: "(?i)(🇸🇬|新加坡|狮城|sg|SG|Singapore)"
 
-  - name: 台湾
+  - name: Taiwan
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
     include-all: true
     filter: "(?i)(🇼🇸|台湾|tw|TW|Taiwan)"
 
-  - name: 韩国
+  - name: Korea
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
     include-all: true
     filter: "(?i)(🇰🇷|韩国|KR|Korea)"
 
-  - name: 美国
+  - name: America
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
     include-all: true
     filter: "(?i)(🇺🇲|美国|USA|America|United States)"
     
-  - name: 国内
+  - name: CN
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
     include-all: true
     filter: "(?i)(🇨🇳|徐|广|浙|镇|武|济)"
 
-  - name: 其它
+  - name: Other
     type: select
     #<<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
@@ -176,9 +176,9 @@ proxy-groups:
 
 # 规则
 rules:
-  - RULE-SET,Advertising_Domain,REJECT-DROP
+  - RULE-SET,Advertising_Domain,REJECT
   - DST-PORT,53,dns-out
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
   - RULE-SET,github,GitHub
   - RULE-SET,youtube,YouTube
   - RULE-SET,spotify,Spotify
